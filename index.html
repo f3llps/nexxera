@@ -1,0 +1,119 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/lodash.min.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/jszip.min.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/excel-builder.dist.js"></script>
+    <script src="app.js"></script>
+	<script src="./node_modules/angular-ui-grid/ui-grid.js"></script>
+	<link rel="stylesheet" type="text/css" href="./node_modules/angular-ui-grid/ui-grid.css" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+<style>
+	#boxes .window {
+	position:absolute;
+	width:440px;
+	height:200px;
+	display:none;
+	z-index:9999;
+	padding:20px;
+	background-color: #eaeaea;
+
+	}
+
+	#boxes #dialog {
+	width:375px;
+	height:203px;
+	}
+	.close {
+	display:block; 
+	text-align:right;
+	}  
+</style>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+$('a[name=modal]').click(function(e) {
+e.preventDefault();
+
+var id = $(this).attr('href');
+
+var maskHeight = $(document).height();
+var maskWidth = $(window).width();
+
+$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+$('#mask').fadeIn(1000);
+$('#mask').fadeTo("slow",0.8);
+
+var winH = $(window).height();
+var winW = $(window).width();
+$(id).css('top',  winH/2-$(id).height()/2);
+$(id).css('left', winW/2-$(id).width()/2);
+$(id).fadeIn(2000);
+});
+
+$('.window .close').click(function (e) {
+
+e.preventDefault();
+$('#mask, .window').hide();
+});
+
+
+$('#mask').click(function () {
+$(this).hide();
+$('.window').hide();
+});
+});
+</script>
+
+  </head>
+  <body>
+    <div ng-controller="MainCtrl as Main">
+		<div id="grid1" ui-grid="Main.gridOptions1" ui-grid-pagination class="grid" style="height:220px" ></div>
+    </div>
+	
+	<script type="text/ng-template" id="dados.html">
+      <div  class="ui-grid-cell-contents">
+		<div class="container">
+			<a href="#dialog" name="modal"> <button class="btn" type="button" ng-click=" grid.appScope.Main.openBeneficiario(COL_FIELD)" id="opener">Beneficiário</button> </a>
+			
+      </div>
+    </script>
+	
+		
+	<script type="text/ng-template" id="dadosPagador.html">
+      <div  class="ui-grid-cell-contents">
+		<div class="container">
+			<a href="#dialog" name="modal"> <button class="btn" type="button" ng-click=" grid.appScope.Main.openPagador(COL_FIELD)" id="opener">Pagador</button> </a>
+			
+      </div>
+    </script>
+	
+	
+	
+	<a href="#dialog" name="modal"></a>
+	<div id="boxes">
+		<div id="dialog" class="window">
+			<b>Detalhes</b>
+			<a href="#" class="close">[X]</a><br />
+			<br>
+			<div id="conteudo-modal">			
+			</div>
+		</div>
+		<div id="mask"></div>
+	</div>
+		
+  </body>
+</html>
