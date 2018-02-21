@@ -17,14 +17,14 @@ function MainCtrl($http, uiGridConstants) {
 	this.gridOptions1 = {
     enableFiltering: true,
 	paginationPageSizes: [5, 10, 15],
-    paginationPageSize: 3,
+    paginationPageSize: 5,
     onRegisterApi: function(gridApi){
       this.gridApi = gridApi;
     },
-    columnDefs: [{ field: 'id',name:'Transferência', headerCellClass: this.highlightFilteredHeader },
+    columnDefs: [{ field: 'id',name:'TransferÃªncia', headerCellClass: this.highlightFilteredHeader },
 		{ field: 'pagador.nome', name:'Pagador', headerCellClass: this.highlightFilteredHeader },
 	{ field: 'pagador', name: 'Detalhes Pag.', cellTemplate: 'dadosPagador.html', headerCellClass: this.highlightFilteredHeader},
-			{ field: 'beneficiario.nome', name:'Beneficiário', headerCellClass: this.highlightFilteredHeader },
+			{ field: 'beneficiario.nome', name:'BeneficiÃ¡rio', headerCellClass: this.highlightFilteredHeader },
 
 	{ field: 'beneficiario', name: 'Detalhes Ben.', cellTemplate: 'dados.html', headerCellClass: this.highlightFilteredHeader},
 
@@ -42,7 +42,7 @@ function MainCtrl($http, uiGridConstants) {
   {
     'id': '64183ca6-5a54-4754-ba9d-0f1d3866e12a',
     'pagador': {
-      'nome': 'Júlia Silva',
+      'nome': 'JÃºlia Silva',
       'banco': '001',
       'agencia': '0010',
       'conta': 48839414
@@ -66,7 +66,7 @@ function MainCtrl($http, uiGridConstants) {
       'conta': 45158542
     },
     'beneficiario': {
-      'nome': 'José Barros',
+      'nome': 'JosÃ© Barros',
       'banco': '001',
       'agencia': '1200',
       'conta': 88455305
@@ -96,13 +96,13 @@ function MainCtrl($http, uiGridConstants) {
   {
     'id': '7855992a-edf4-4a23-929d-7d5f3d858d9c',
     'pagador': {
-      'nome': 'Júlia Cardoso',
+      'nome': 'JÃºlia Cardoso',
       'banco': '104',
       'agencia': '1200',
       'conta': 39209839
     },
     'beneficiario': {
-      'nome': 'José Barbosa',
+      'nome': 'JosÃ© Barbosa',
       'banco': '237',
       'agencia': '0010',
       'conta': 27279748
@@ -114,13 +114,13 @@ function MainCtrl($http, uiGridConstants) {
   {
     'id': '7b647b63-be09-4d82-a019-de06528d1763',
     'pagador': {
-      'nome': 'José Cardoso',
+      'nome': 'JosÃ© Cardoso',
       'banco': '104',
       'agencia': '0010',
       'conta': 61898440
     },
     'beneficiario': {
-      'nome': 'João Cardoso',
+      'nome': 'JoÃ£o Cardoso',
       'banco': '237',
       'agencia': '34560',
       'conta': 27692053
@@ -132,7 +132,7 @@ function MainCtrl($http, uiGridConstants) {
   {
     'id': 'abb2470b-ca9d-4942-9339-f308109884ed',
     'pagador': {
-      'nome': 'João Barbosa',
+      'nome': 'JoÃ£o Barbosa',
       'banco': '001',
       'agencia': '34560',
       'conta': 51429973
@@ -150,13 +150,13 @@ function MainCtrl($http, uiGridConstants) {
   {
     'id': 'a8407c4c-9fbb-422c-bcb4-992fb32e6707',
     'pagador': {
-      'nome': 'Júlia Barbosa',
+      'nome': 'JÃºlia Barbosa',
       'banco': '001',
       'agencia': '0010',
       'conta': 58984654
     },
     'beneficiario': {
-      'nome': 'João Cardoso',
+      'nome': 'JoÃ£o Cardoso',
       'banco': '001',
       'agencia': '34560',
       'conta': 70379544
@@ -240,7 +240,7 @@ function MainCtrl($http, uiGridConstants) {
   {
     'id': '4b8d93c8-f404-4e96-80a3-5c7571dac1dc',
     'pagador': {
-      'nome': 'João Batista',
+      'nome': 'JoÃ£o Batista',
       'banco': '001',
       'agencia': '34560',
       'conta': 36435504
@@ -282,7 +282,7 @@ function MainCtrl($http, uiGridConstants) {
       'conta': 26391196
     },
     'beneficiario': {
-      'nome': 'José Fernandes',
+      'nome': 'JosÃ© Fernandes',
       'banco': '033',
       'agencia': '3616',
       'conta': 67269319
@@ -312,11 +312,11 @@ function MainCtrl($http, uiGridConstants) {
 ]
 
     this.openBeneficiario = function(beneficiario) {
-			$("#conteudo-modal").html("<B>BENEFICIÁRIO</B><BR/> Nome: " + beneficiario.nome+"<br>Banco: "+beneficiario.banco+"<br>Agência: "+beneficiario.agencia+"<br>Conta: "+beneficiario.conta);
+			$("#conteudo-modal").html("<B>BENEFICIÃ¡RIO</B><BR/> <BR/> Nome: " + beneficiario.nome+"<br>Banco: "+beneficiario.banco+"<br>AgÃªncia: "+beneficiario.agencia+"<br>Conta: "+beneficiario.conta);
   };
   
       this.openPagador= function(pagador) {
-			$("#conteudo-modal").html("<B>PAGADOR</B><BR/> Nome: " + pagador.nome+"<br>Banco: "+pagador.banco+"<br>Agência: "+pagador.agencia+"<br>Conta: "+pagador.conta);
+			$("#conteudo-modal").html("<B>PAGADOR</B><BR/><BR/>  Nome: " + pagador.nome+"<br>Banco: "+pagador.banco+"<br>AgÃªncia: "+pagador.agencia+"<br>Conta: "+pagador.conta);
   
   };
   

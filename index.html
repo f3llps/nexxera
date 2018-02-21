@@ -1,6 +1,14 @@
 <!doctype html>
-<html ng-app="app">
+<html ng-app="app" lang="pt-BR">
   <head>
+  
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="NIX -  O melhor e maior banco da América Latina" content="">
+    <meta name="Fellipe Gomes Versiani" content="">
+
+    <title>BANCO NIX</title>
+	
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-touch.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.js"></script>
@@ -12,33 +20,85 @@
     <script src="http://ui-grid.info/docs/grunt-scripts/excel-builder.dist.js"></script>
     <script src="app.js"></script>
 	<script src="./node_modules/angular-ui-grid/ui-grid.js"></script>
-	<link rel="stylesheet" type="text/css" href="./node_modules/angular-ui-grid/ui-grid.css" />
+
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+   <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
+	
+	
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="./node_modules/angular-ui-grid/ui-grid.css" />
+	
 <style>
 	#boxes .window {
-	position:absolute;
-	width:440px;
-	height:200px;
+   position: absolute;
+   top: 50%;
+   right: 50%;
+   transform: translate(50%, 50%);
 	display:none;
 	z-index:9999;
-	padding:20px;
+	padding:5px;
 	background-color: #eaeaea;
 
 	}
 
 	#boxes #dialog {
-	width:375px;
-	height:203px;
+   height: 250px;
+     width: 300px;
+	 color: white;
+	 background-color: #333
 	}
 	.close {
 	display:block; 
 	text-align:right;
 	}  
+	
+	.ui-grid-pager-control button {
+    height: 13px;
+     width: 11px;
+    min-width: 0px;
+}
+
+.ui-grid-pager-control input
+{
+
+height: 15px;
+}
+
+
+.ui-grid-pager-row-count-picker select{
+height: 15px;
+}
+
+.ui-grid-pager-panel{
+background-color: #eaeaea
+}
+
+
+	}
 </style>
 
 <script type="text/javascript">
@@ -52,16 +112,12 @@ var id = $(this).attr('href');
 var maskHeight = $(document).height();
 var maskWidth = $(window).width();
 
-$('#mask').css({'width':maskWidth,'height':maskHeight});
 
 $('#mask').fadeIn(1000);
-$('#mask').fadeTo("slow",0.8);
+$('#mask').fadeTo("slow",1.2);
 
-var winH = $(window).height();
-var winW = $(window).width();
-$(id).css('top',  winH/2-$(id).height()/2);
-$(id).css('left', winW/2-$(id).width()/2);
-$(id).fadeIn(2000);
+
+$(id).fadeIn(1000);
 });
 
 $('.window .close').click(function (e) {
@@ -79,41 +135,73 @@ $('.window').hide();
 </script>
 
   </head>
-  <body>
-    <div ng-controller="MainCtrl as Main">
-		<div id="grid1" ui-grid="Main.gridOptions1" ui-grid-pagination class="grid" style="height:220px" ></div>
+  <body >
+  	
+      <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">BANCO NIX</a>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Serviços</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+        <header class="masthead text-center text-white">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>BANCO NIX</strong>
+            </h1>
+            <hr>
+          </div>
+          <div class="col-lg-12 mx-auto">
+            <p class="text-faded mb-5"> O maior banco da América Latina, com a maior rede de agências no Brasil e no exterior. Conheça os produtos e serviços do BANCO NIX! Agora o Banco Nix disponibiliza serviços de transferências bancárias para empresas e seus clientes:</p>
+    <div style="color: black" ng-controller="MainCtrl as Main">
+		<div id="grid1" ui-grid="Main.gridOptions1" ui-grid-pagination class="grid" style="height:271px" ></div>
     </div>
 	
 	<script type="text/ng-template" id="dados.html">
       <div  class="ui-grid-cell-contents">
 		<div class="container">
-			<a href="#dialog" name="modal"> <button class="btn" type="button" ng-click=" grid.appScope.Main.openBeneficiario(COL_FIELD)" id="opener">Benefici�rio</button> </a>
+			<a href="#dialog" name="modal"> <button class="" type="button" ng-click=" grid.appScope.Main.openBeneficiario(COL_FIELD)" id="opener">Beneficiário</button> </a>
 			
       </div>
     </script>
-	
 		
 	<script type="text/ng-template" id="dadosPagador.html">
       <div  class="ui-grid-cell-contents">
 		<div class="container">
-			<a href="#dialog" name="modal"> <button class="btn" type="button" ng-click=" grid.appScope.Main.openPagador(COL_FIELD)" id="opener">Pagador</button> </a>
-			
+			<a href="#dialog" name="modal"> <button class="" type="button" ng-click=" grid.appScope.Main.openPagador(COL_FIELD)" id="opener">Pagador</button> </a>
       </div>
     </script>
-	
-	
-	
-	<a href="#dialog" name="modal"></a>
+
+	<a href="#dialog" name="modal" ></a>
 	<div id="boxes">
 		<div id="dialog" class="window">
-			<b>Detalhes</b>
-			<a href="#" class="close">[X]</a><br />
-			<br>
-			<div id="conteudo-modal">			
+			<a href="#" class="close" style="color: white;">[X]</a><br />
+			<div id="conteudo-modal" >			
 			</div>
 		</div>
 		<div id="mask"></div>
 	</div>
+
+          </div>
+        </div>
+      </div>
+    </header>
 		
   </body>
 </html>
