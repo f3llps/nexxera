@@ -55,7 +55,7 @@
 <style>
 	#boxes .window {
    position: absolute;
-   top: 50%;
+   top: 20%;
    right: 50%;
    transform: translate(50%, 50%);
 	display:none;
@@ -131,7 +131,47 @@ $('#mask').click(function () {
 $(this).hide();
 $('.window').hide();
 });
+
+
+$('#Com-Background').click(function(){
+	$('header').addClass('masthead');
+	$(this).addClass('active');
+	$('#Preto').removeClass('active');
+	$('#Cinza').removeClass('active');
+	$('#Azul').removeClass('active');
 });
+
+
+$('#Preto').click(function(){
+	$('header').removeClass('masthead');
+	$('header').css({'background-color': "black"});
+	$(this).addClass('active');
+	$('#Cinza').removeClass('active');
+	$('#Com-Background').removeClass('active');
+	$('#Azul').removeClass('active');
+});
+
+$('#Azul').click(function(){
+	$('header').removeClass('masthead');
+	$('header').css({'background-color': "#001a66"});
+	$(this).addClass('active');
+	$('#Preto').removeClass('active');
+	$('#Com-Background').removeClass('active');
+	$('#Cinza').removeClass('active');
+});
+
+$('#Cinza').click(function(){
+	$('header').removeClass('masthead');
+	$('header').css({'background-color': "#CCC"});
+	$(this).addClass('active');
+	$('#Preto').removeClass('active');
+	$('#Com-Background').removeClass('active');
+	$('#Azul').removeClass('active');
+});
+
+});
+
+
 </script>
 
   </head>
@@ -169,9 +209,25 @@ $('.window').hide();
           </div>
           <div class="col-lg-12 mx-auto">
             <p class="text-faded mb-5"> O maior banco da América Latina, com a maior rede de agências no Brasil e no exterior. Conheça os produtos e serviços do BANCO NIX! Agora o Banco Nix disponibiliza serviços de transferências bancárias para empresas e seus clientes:</p>
-    <div style="color: black" ng-controller="MainCtrl as Main">
+    
+  
+  <div class="dropdown" style="float:left; clear: both">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    COR DO SISTEMA
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item active" id="Com-Background" type="button">Com background</button>
+    <button class="dropdown-item" id="Cinza" type="button">Cinza</button>
+    <button class="dropdown-item" id="Preto" type="button">Preto</button>
+	<button class="dropdown-item" id="Azul" type="button">Azul</button>
+  </div>
+</div>
+	<BR/><BR/>
+	
+	<div style="color: black" ng-controller="MainCtrl as Main">
 		<div id="grid1" ui-grid="Main.gridOptions1" ui-grid-pagination class="grid" style="height:271px" ></div>
     </div>
+	
 	
 	<script type="text/ng-template" id="dados.html">
       <div  class="ui-grid-cell-contents">
